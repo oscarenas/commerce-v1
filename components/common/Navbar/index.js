@@ -1,20 +1,23 @@
 import React from 'react';
+import Image from 'next/image';
 
 function Navbar() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="w-full shadow-menu-light pb-3 mb-1">
       <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
         <nav
-          className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+          className="relative flex items-center justify-between sm:h-10 lg:justify-start max-w-7xl mx-auto"
           aria-label="Global"
         >
           <div className="flex items-center flex-grow flex-shrink-0">
             <div className="flex items-center justify-between w-full md:w-auto">
               <a href="#">
                 <span className="sr-only">Workflow</span>
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                <Image
+                  src="/monopatin.png"
+                  alt="Picture of the author"
+                  height={50}
+                  width={150}
                 />
               </a>
               <div className="-mr-2 flex items-center md:hidden">
@@ -78,13 +81,12 @@ function Navbar() {
       <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
         <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div className="px-5 pt-4 flex items-center justify-between">
-            <div>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
-              />
-            </div>
+            <Image
+              src="/logo-monopatin.svg"
+              alt="Picture of the author"
+              height={40}
+              width={100}
+            />
             <div className="-mr-2">
               <button
                 type="button"
