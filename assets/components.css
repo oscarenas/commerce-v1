@@ -1,3 +1,5 @@
+@import '../components/common/Banner/Banner.module.css';
+
 .fit {
   min-height: calc(100vh - 88px);
 }
