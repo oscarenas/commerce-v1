@@ -1,86 +1,68 @@
-import React, { useState } from 'react';
-import { useKeenSlider } from 'keen-slider/react';
-import 'keen-slider/keen-slider.min.css';
+import React from 'react';
+import Link from 'next/link';
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+  Virtual,
+} from 'swiper';
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Autoplay]);
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function Banner() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [sliderRef, slider] = useKeenSlider({
-    initial: 0,
-    slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide);
-    },
-  });
+function Banner({ images }) {
+  return (
+    <div className="-mt-1 mb-8">
+      <Swiper
+        slidesPerView={1}
+        navigation={true}
+        pagination={{ clickable: true }}
+        initialSlide={0}
+        lazy={true}
+        autoHeight={true}
+        updateOnWindowResize={true}
+        preloadImages={true}
+        updateOnImagesReady={true}
+      >
+        {images.map((item, index) => (
+          <SwiperSlide key={index} virtualIndex={index}>
+            <Slides banner={item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+
+function Slides({ banner }) {
   return (
     <>
-      <div className="navigation-wrapper -mt-1">
-        <div
-          ref={sliderRef}
-          className="keen-slider h-full transition-opacity duration-150"
-        >
-          <div className="keen-slider__slide number-slide1 slide">1</div>
-          <div className="keen-slider__slide number-slide2 slide">2</div>
-          <div className="keen-slider__slide number-slide3 slide">3</div>
-          <div className="keen-slider__slide number-slide4 slide">4</div>
-          <div className="keen-slider__slide number-slide5 slide">5</div>
-          <div className="keen-slider__slide number-slide6 slide">6</div>
-        </div>
-        {slider && (
-          <>
-            <ArrowLeft
-              onClick={(e) => e.stopPropagation() || slider.prev()}
-              disabled={currentSlide === 0}
-            />
-            <ArrowRight
-              onClick={(e) => e.stopPropagation() || slider.next()}
-              disabled={currentSlide === slider.details().size - 1}
-            />
-          </>
-        )}
-      </div>
-      {slider && (
-        <div className="dots">
-          {[...Array(slider.details().size).keys()].map((idx) => {
-            return (
-              <button
-                key={idx}
-                onClick={() => {
-                  slider.moveToSlideRelative(idx);
-                }}
-                className={'dot' + (currentSlide === idx ? ' active' : '')}
-              />
-            );
-          })}
-        </div>
+      {banner.bannerLink ? (
+        <Link href={banner.bannerLink}>
+          <a className="w-full">
+            <Pic item={banner} />
+          </a>
+        </Link>
+      ) : (
+        <Pic item={banner} />
       )}
     </>
   );
 }
 
-function ArrowLeft(props) {
-  const disabeld = props.disabled ? ' arrow--disabled' : '';
+function Pic({ item }) {
   return (
-    <svg
-      onClick={props.onClick}
-      className={'arrow arrow--left' + disabeld}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-    </svg>
-  );
-}
-
-function ArrowRight(props) {
-  const disabeld = props.disabled ? ' arrow--disabled' : '';
-  return (
-    <svg
-      onClick={props.onClick}
-      className={'arrow arrow--right' + disabeld}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-    </svg>
+    <picture className="w-full">
+      <source media="(min-width: 768px)" srcSet={item.bannerEscritorio} />
+      <source media="(min-width: 320px)" srcSet={item.bannerMobile} />
+      <img
+        src={item.bannerEscritorio}
+        alt={item.bannerDescripcion}
+        width="100%"
+        height="100%"
+      />
+    </picture>
   );
 }
 

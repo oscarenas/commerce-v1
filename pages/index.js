@@ -2,10 +2,59 @@ import Button from '../components/ui/Button';
 import Layout from '../components/common/Layout';
 import Banner from '../components/common/Banner';
 
+const BANNERS = {
+  media: [
+    {
+      id: '1',
+      bannerEscritorio:
+        'https://cdn.shopify.com/s/files/1/2141/9909/files/Heineken_Banner.jpg',
+      bannerMobile:
+        'https://scontent.fbog15-1.fna.fbcdn.net/v/t31.0-8/s720x720/479172_314989985249999_52906271_o.jpg?_nc_cat=108&ccb=2&_nc_sid=174925&_nc_ohc=zYo3kz9-BscAX9OMC7U&_nc_ht=scontent.fbog15-1.fna&tp=7&oh=c3f7f34a43164536a1ec773f468f0893&oe=600E5CA6',
+      bannerLink: 'https://google.com',
+      bannerDescripcion: 'descripcion uno del banner',
+      ctaEscritorio:
+        'https://static.crello.com/api/templates/5f886765a637ee11e385d265/thumbnails/0?size=1280',
+      ctaMobile:
+        'https://static.crello.com/api/templates/5e997523499b85dcc78535e6/thumbnails/0?size=788',
+      ctaDescripcion: 'Call to Action 1',
+      ctaLink: 'https://google.com',
+    },
+    {
+      id: '2',
+      bannerEscritorio:
+        'https://static.wixstatic.com/media/a8f074_f692a430da514f3d8e89bc31672f6931.jpg',
+      bannerMobile:
+        'https://i.pinimg.com/originals/27/1c/c6/271cc6511664cc4400e59ebaa34c311d.jpg',
+      bannerLink: 'https://facebook.com',
+      bannerDescripcion: 'descripcion dos',
+      ctaEscritorio:
+        'https://static.crello.com/api/templates/5f844dfda637ee11e3281959/thumbnails/0?size=1280',
+      ctaMobile:
+        'https://static.crello.com/api/templates/5931408595a7a863ddcdcb1c/thumbnails/0?size=788',
+      ctaDescripcion: 'Call to Action 2',
+      ctaLink: 'https://facebook.com',
+    },
+    {
+      id: '3',
+      bannerEscritorio:
+        'https://beerwithus1.files.wordpress.com/2019/03/erdinger-banner-6.jpg',
+      bannerMobile:
+        'https://scontent.fbog15-1.fna.fbcdn.net/v/t31.0-8/s720x720/479172_314989985249999_52906271_o.jpg?_nc_cat=108&ccb=2&_nc_sid=174925&_nc_ohc=zYo3kz9-BscAX9OMC7U&_nc_ht=scontent.fbog15-1.fna&tp=7&oh=c3f7f34a43164536a1ec773f468f0893&oe=600E5CA6',
+      bannerLink: 'https://twitter.com/',
+      bannerDescripcion: 'descripcion tres',
+      ctaEscritorio:
+        'https://static.crello.com/api/templates/5f886765a637ee11e385d265/thumbnails/0?size=1280',
+      ctaMobile:
+        'https://static.crello.com/api/templates/5e997523499b85dcc78535e6/thumbnails/0?size=788',
+      ctaDescripcion: 'Call to Action 3',
+      ctaLink: 'https://twitter.com/',
+    },
+  ],
+};
 export default function Home() {
   return (
     <Layout>
-      <Banner />
+      <Banner images={BANNERS.media} />
       <div className="relative bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
