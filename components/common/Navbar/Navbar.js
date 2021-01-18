@@ -3,8 +3,8 @@ import React from 'react';
 function Navbar(props) {
   const { logo, titulo } = props;
   return (
-    <div className="w-full shadow-menu-light pb-3 mb-1">
-      <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
+    <div className="w-full shadow-menu-light pb-3 fixed mb-1 z-50 bg-white">
+      <div className="pt-6 px-4 sm:px-6 lg:px-8">
         <nav
           className="relative flex items-center justify-between sm:h-10 lg:justify-start max-w-7xl mx-auto"
           aria-label="Global"
@@ -73,10 +73,9 @@ function Navbar(props) {
         </nav>
       </div>
 
-      <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden hidden">
+      {/* <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
         <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div className="px-5 pt-4 flex items-center justify-between">
-            <img src={logo} alt={titulo} height="40" />
             <div className="-mr-2">
               <button
                 type="button"
@@ -141,7 +140,7 @@ function Navbar(props) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
