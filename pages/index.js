@@ -79,7 +79,7 @@ export default function Home() {
                 aria-label="Button Component"
                 className={s.slim}
                 onClick={addToCart}
-                loading={false}
+                loading={true}
                 disabled={false}
                 Component="button"
                 type="submit"

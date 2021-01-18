@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import s from './Button.module.css';
+import LoadingDots from '../LoadingDots';
 
 const Button = forwardRef((props, buttonRef) => {
   const {
@@ -45,7 +46,7 @@ const Button = forwardRef((props, buttonRef) => {
       {children}
       {loading && (
         <i className="pl-2 m-0 flex">
-          <p>Cargando...</p>
+          <LoadingDots />
         </i>
       )}
     </Component>
