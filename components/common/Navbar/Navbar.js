@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import LABELS from '../../../CONSTANTS';
+import { activeItemMenu } from '../../../lib/utils';
 
 function Navbar(props) {
   const { logo, titulo } = props;
+  const [activeItem, setActiveItem] = useState('/');
+
+  useEffect(() => {
+    const path = () => {
+      if (typeof window !== 'undefined') {
+        return window.location.pathname.split('/')[1] === '' ? 'inicio' : path;
+      }
+    };
+
+    setActiveItem(path());
+    console.log(path());
+  }, []);
+
   return (
     <div className="w-full shadow-menu-light pb-3 fixed mb-1 z-50 bg-white">
-      <div className="pt-6 px-4 sm:px-6 lg:px-8">
+      <div className="md:pt-6 sm:pt-2 xs:pt-4 px-4 sm:px-6 lg:px-8">
         <nav
           className="relative flex items-center justify-between sm:h-10 lg:justify-start max-w-7xl mx-auto"
           aria-label="Global"
@@ -12,7 +28,7 @@ function Navbar(props) {
           <div className="flex items-center flex-grow flex-shrink-0">
             <div className="flex items-center justify-between w-full md:w-auto">
               <a href="#">
-                <span className="sr-only">Workflow</span>
+                <span className="sr-only">{titulo}</span>
                 <img className="h-12" src={logo} alt={titulo} height="40" />
               </a>
               <div className="-mr-2 flex items-center md:hidden">
@@ -22,7 +38,7 @@ function Navbar(props) {
                   id="main-menu"
                   aria-haspopup="true"
                 >
-                  <span className="sr-only">Open main menu</span>
+                  <span className="sr-only">{LABELS.menuLabel}</span>
                   <svg
                     className="h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -43,29 +59,26 @@ function Navbar(props) {
             </div>
           </div>
           <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+            {activeItem &&
+              LABELS.topMenu.map((item, index) => {
+                const { label, url } = item;
+                return (
+                  <Link href={url} key={index}>
+                    <a
+                      className={`${
+                        label.toLocaleLowerCase() === activeItem
+                          ? 'font-bold text-gray-800 hover:text-gray-800 border-b-4 border-gray-800 py-4 px-2'
+                          : 'font-medium text-gray-500 hover:text-gray-600 py-4 px-2'
+                      }`}
+                    >
+                      {label}
+                    </a>
+                  </Link>
+                );
+              })}
             <a
               href="#"
-              className="font-medium text-gray-500 hover:text-gray-900"
-            >
-              Inicio
-            </a>
-
-            <a
-              href="#"
-              className="font-medium text-gray-500 hover:text-gray-900"
-            >
-              Tienda
-            </a>
-
-            <a
-              href="#"
-              className="font-medium text-gray-500 hover:text-gray-900"
-            >
-              Contacto
-            </a>
-            <a
-              href="#"
-              className="p-3 font-medium text-gray-500 hover:text-gray-900"
+              className="p-3 font-medium text-gray-500 hover:text-gray-900  py-4 px-2"
             >
               <i className="fas fa-shopping-cart"></i>
             </a>
