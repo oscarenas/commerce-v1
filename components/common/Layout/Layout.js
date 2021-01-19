@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer';
+import { Footer, Navbar } from '@components/common';
 
 const SEO = {
   seo: {
@@ -32,7 +30,7 @@ function Layout(props) {
   return (
     <div className="h-12 w-full font-body">
       <Navbar logo={SEO.seo.logo} titulo={SEO.seo.titulo} />
-      <main className="mx-auto">{children}</main>
+      <main className="mx-auto pt-20">{children}</main>
       <Footer />
     </div>
   );

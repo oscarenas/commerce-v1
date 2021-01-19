@@ -1,7 +1,5 @@
-import Button from '../components/ui/Button';
-import Layout from '../components/common/Layout';
-import Banner from '../components/common/Banner';
-import Container from '../components/ui/Container';
+import { Button, Container } from '@components/ui';
+import { Layout, Banner } from '@components/common';
 import s from '../components/ui/Button/Button.module.css';
 
 const BANNERS = {

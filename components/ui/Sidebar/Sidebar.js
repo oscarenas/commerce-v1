@@ -5,7 +5,7 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 import Portal from '@reach/portal';
-import LABELS from '../../../CONSTANTS';
+import LABELS from '../../../utils/CONSTANTS';
 import s from './Sidebar.module.css';
 
 function Sidebar({ open = false, onClose }) {
@@ -43,7 +43,7 @@ function Sidebar({ open = false, onClose }) {
               className="absolute inset-0 bg-black bg-opacity-50"
               onClick={handleClose}
             />
-            <section className="absolute inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16 outline-none ">
+            <section className="absolute inset-y-0 right-0 md:pl-10 xs:pl-2 max-w-full flex sm:pl-16 outline-none ">
               <div className="h-full md:w-screen md:max-w-md">
                 <div
                   className={`h-full  text-base bg-accents-1 shadow-xl overflow-y-auto transform transition opacity-0 ${animation}`}

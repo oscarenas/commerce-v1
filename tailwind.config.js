@@ -59,7 +59,7 @@ module.exports = {
       },
     },
     animation: {
-      slideLeft: 'slideLeft 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+      slideLeft: 'slideLeft 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
       slideRight:
         'slideRight 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
     },
