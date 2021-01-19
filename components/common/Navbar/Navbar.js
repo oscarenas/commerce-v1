@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import LABELS from '../../../CONSTANTS';
-import { activeItemMenu } from '../../../lib/utils';
+import Sidebar from '../../ui/Sidebar';
 
 function Navbar(props) {
   const { logo, titulo } = props;
   const [activeItem, setActiveItem] = useState('/');
+  const [openSlide, setOpenSlide] = useState(false);
 
   useEffect(() => {
     const path = () => {
@@ -16,11 +17,20 @@ function Navbar(props) {
 
     setActiveItem(path());
     console.log(path());
+    setOpenSlide(false);
   }, []);
 
+  function closeSidebar(e) {
+    console.log(e);
+    setOpenSlide(false);
+  }
+  function openMenu() {
+    setOpenSlide((prev) => !prev);
+  }
+
   return (
-    <div className="w-full shadow-menu-light pb-3 fixed mb-1 z-50 bg-white">
-      <div className="md:pt-6 sm:pt-2 xs:pt-4 px-4 sm:px-6 lg:px-8">
+    <div className="w-full shadow-menu-light fixed mb-1 z-50 bg-white">
+      <div className="md:pt-6 sm:pt-2 xs:pt-4 px-4 sm:px-6 lg:px-8 pb-2">
         <nav
           className="relative flex items-center justify-between sm:h-10 lg:justify-start max-w-7xl mx-auto"
           aria-label="Global"
@@ -37,6 +47,7 @@ function Navbar(props) {
                   className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   id="main-menu"
                   aria-haspopup="true"
+                  onClick={openMenu}
                 >
                   <span className="sr-only">{LABELS.menuLabel}</span>
                   <svg
@@ -85,6 +96,8 @@ function Navbar(props) {
           </div>
         </nav>
       </div>
+      <hr />
+      <Sidebar open={openSlide} onClose={closeSidebar}></Sidebar>
 
       {/* <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
         <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">

@@ -48,6 +48,21 @@ module.exports = {
     fontFamily: {
       body: ['"Poppins"', 'sans-serif'],
     },
+    keyframes: {
+      slideLeft: {
+        '0%': { transform: 'translateX(20rem)' },
+        '100%': { transform: 'translateX(0rem)' },
+      },
+      slideRight: {
+        '0%': { transform: 'translateX(0rem)' },
+        '100%': { transform: 'translateX(20rem)' },
+      },
+    },
+    animation: {
+      slideLeft: 'slideLeft 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+      slideRight:
+        'slideRight 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+    },
   },
   variants: {
     extend: {},
