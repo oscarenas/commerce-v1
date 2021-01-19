@@ -77,9 +77,9 @@ export default function Home() {
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <Button
                 aria-label="Button Component"
-                className={s.slim}
+                className={s.btn}
                 onClick={addToCart}
-                loading={true}
+                loading={false}
                 disabled={false}
                 Component="button"
                 type="submit"

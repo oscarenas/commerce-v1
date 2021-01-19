@@ -3,6 +3,7 @@ import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import s from './Button.module.css';
 import LoadingDots from '../LoadingDots';
+import PropTypes from 'prop-types';
 
 const Button = forwardRef((props, buttonRef) => {
   const {
@@ -53,4 +54,15 @@ const Button = forwardRef((props, buttonRef) => {
   );
 });
 
+Button.propTypes = {
+  href: PropTypes.string,
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(['flat', 'slim']),
+  active: PropTypes.bool,
+  type: PropTypes.oneOf(['submit', 'reset', 'button']),
+  Component: PropTypes.string,
+  width: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
+};
 export default Button;
