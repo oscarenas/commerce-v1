@@ -52,7 +52,9 @@ function Sidebar({ open = false, onClose }) {
                     <div className="divide-y divide-gray-300 divide-solid text-gray-500">
                       <div className="flex">
                         <div className="w-6/12 py-5 pl-5">
-                          <span className="ml-3 font-bold">MENU</span>
+                          <span className="ml-3 font-bold uppercase">
+                            {LABELS.menuLabel}
+                          </span>
                         </div>
 
                         <div className="w-6/12 py-5 pr-5 text-right">

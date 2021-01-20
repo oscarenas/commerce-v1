@@ -4,6 +4,7 @@ import { Footer, Navbar } from '@components/common';
 
 const SEO = {
   seo: {
+    id: 'cokwr',
     pagina: 'Monopatin',
     titulo: 'Monopatin Skate shop 🐵',
     descripcion:
@@ -14,14 +15,14 @@ const SEO = {
     telefono: '3124567890',
     direccion: 'Calle 93 #11-52 - Bogota, Colombia',
     whatsapp: '3124567890',
-    messenger: false,
+    messenger: 'https://instagram/cerveza',
     instagram: 'https://instagram/cerveza',
     facebook: 'https://www.facebook.com/Cerveza',
     twitter: 'https://twitter.com/UsuarioBici',
-    youtube: false,
-    snapchat: false,
-    linkedin: false,
-    tiktok: false,
+    youtube: 'https://twitter.com/UsuarioBici',
+    snapchat: 'https://twitter.com/UsuarioBici',
+    linkedin: 'https://twitter.com/UsuarioBici',
+    tiktok: 'https://twitter.com/UsuarioBici',
   },
 };
 
@@ -31,7 +32,7 @@ function Layout(props) {
     <div className="h-12 w-full font-body">
       <Navbar logo={SEO.seo.logo} titulo={SEO.seo.titulo} />
       <main className="mx-auto pt-20">{children}</main>
-      <Footer />
+      <Footer data={SEO.seo} />
     </div>
   );
 }
