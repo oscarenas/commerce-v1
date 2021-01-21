@@ -5,8 +5,9 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 import Portal from '@reach/portal';
-import LABELS from '../../../utils/CONSTANTS';
+import LABELS from '../../../utils/CONSTANTS/LABELS';
 import s from './Sidebar.module.css';
+import PropTypes from 'prop-types';
 
 function Sidebar({ open = false, onClose }) {
   const ref = useRef();
@@ -97,4 +98,8 @@ function Sidebar({ open = false, onClose }) {
   );
 }
 
+Sidebar.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+};
 export default Sidebar;

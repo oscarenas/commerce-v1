@@ -1,64 +1,80 @@
-import { Button, Container } from '@components/ui';
+import { useState } from 'react';
+import { Button, Container, Hero } from '@components/ui';
 import { Layout, Banner } from '@components/common';
 import s from '../components/ui/Button/Button.module.css';
 
 const BANNERS = {
-  media: [
-    {
-      id: '1',
-      bannerEscritorio:
-        'https://cdn.shopify.com/s/files/1/2141/9909/files/Heineken_Banner.jpg',
-      bannerMobile:
-        'https://scontent.fbog15-1.fna.fbcdn.net/v/t31.0-8/s720x720/479172_314989985249999_52906271_o.jpg?_nc_cat=108&ccb=2&_nc_sid=174925&_nc_ohc=zYo3kz9-BscAX9OMC7U&_nc_ht=scontent.fbog15-1.fna&tp=7&oh=c3f7f34a43164536a1ec773f468f0893&oe=600E5CA6',
-      bannerLink: 'https://google.com',
-      bannerDescripcion: 'descripcion uno del banner',
-      ctaEscritorio:
-        'https://static.crello.com/api/templates/5f886765a637ee11e385d265/thumbnails/0?size=1280',
-      ctaMobile:
-        'https://static.crello.com/api/templates/5e997523499b85dcc78535e6/thumbnails/0?size=788',
-      ctaDescripcion: 'Call to Action 1',
-      ctaLink: 'https://google.com',
-    },
-    {
-      id: '2',
-      bannerEscritorio:
-        'https://static.wixstatic.com/media/a8f074_f692a430da514f3d8e89bc31672f6931.jpg',
-      bannerMobile:
-        'https://i.pinimg.com/originals/27/1c/c6/271cc6511664cc4400e59ebaa34c311d.jpg',
-      bannerLink: 'https://facebook.com',
-      bannerDescripcion: 'descripcion dos',
-      ctaEscritorio:
-        'https://static.crello.com/api/templates/5f844dfda637ee11e3281959/thumbnails/0?size=1280',
-      ctaMobile:
-        'https://static.crello.com/api/templates/5931408595a7a863ddcdcb1c/thumbnails/0?size=788',
-      ctaDescripcion: 'Call to Action 2',
-      ctaLink: 'https://facebook.com',
-    },
-    {
-      id: '3',
-      bannerEscritorio:
-        'https://beerwithus1.files.wordpress.com/2019/03/erdinger-banner-6.jpg',
-      bannerMobile:
-        'https://scontent.fbog15-1.fna.fbcdn.net/v/t31.0-8/s720x720/479172_314989985249999_52906271_o.jpg?_nc_cat=108&ccb=2&_nc_sid=174925&_nc_ohc=zYo3kz9-BscAX9OMC7U&_nc_ht=scontent.fbog15-1.fna&tp=7&oh=c3f7f34a43164536a1ec773f468f0893&oe=600E5CA6',
-      bannerLink: 'https://twitter.com/',
-      bannerDescripcion: 'descripcion tres',
-      ctaEscritorio:
-        'https://static.crello.com/api/templates/5f886765a637ee11e385d265/thumbnails/0?size=1280',
-      ctaMobile:
-        'https://static.crello.com/api/templates/5e997523499b85dcc78535e6/thumbnails/0?size=788',
-      ctaDescripcion: 'Call to Action 3',
-      ctaLink: 'https://twitter.com/',
-    },
-  ],
+  media: {
+    banner: [
+      {
+        desktop:
+          'https://www.pyropainters.de/images/pyropaintersde/162-vans-cheap-skors-online-vans-skors-sales-3013.jpg',
+        mobile:
+          'https://vansco.vteximg.com.br/arquivos/ids/243671/BANNER-MOBILE_BACKSCHOOL.jpg',
+        desc: 'descripcion uno del banner',
+        link: 'https://google.com',
+      },
+      {
+        desktop: 'https://www.zimbabwetienda.com/images/BANNER-NIKE-SB-3.jpg',
+        mobile:
+          'https://i.pinimg.com/originals/2e/2d/ab/2e2dab8bac3d4577c7e90a32df3b9a85.jpg',
+        desc: 'descripcion dos',
+        link: 'https://facebook.com',
+      },
+      {
+        desktop:
+          'https://www.etnies.com/on/demandware.static/-/Library-Sites-EtniesSharedLibrary/default/dw0a2b04ab/Collections/Category/Category%202020/ET_FA20_Michelin_Pack_eComm_Banners_ET_FA20_Michelin_Pack_Homepage.jpg',
+        mobile:
+          'https://d8ni2q4fyw-flywheel.netdna-ssl.com/wp-content/uploads/2020/11/MLL-CTA-banner-mobile-ETNIES-OCT-2020-720x720.jpg',
+        desc: 'descripcion tres',
+        link: 'https://twitter.com/',
+      },
+    ],
+    hero: [
+      {
+        desktop: 'https://www.collectoffers.com/EditorImages/banner1.jpg',
+        mobile:
+          'https://media.dcshoes.com.au/media/dc/rwd/giftguide/2021/2101-dc-gifting-essentials-banner-mobile-2.gif',
+        desc: 'Call to Action 1',
+        link: 'https://google.com',
+      },
+      {
+        desktop: 'https://www.speedshoes.com.br/image/catalog/adidas.jpg',
+        mobile:
+          'https://d321d41hgs2fyt.cloudfront.net/media/wysiwyg/landings/hombre/2020/diciembre-21/mobile/ES/banner-adidas-hombre-mobile.jpg',
+        desc: 'Call to Action 2',
+        link: 'https://facebook.com',
+      },
+      {
+        desktop:
+          'https://mltmpgeox6sf.i.optimole.com/G5JfHRg.3FU0~1ec7f/w:auto/h:auto/q:auto/https://reclaimdigital.com/wp-content/uploads/2020/05/nj-web-design-cta.jpg',
+        mobile:
+          'https://www.emerica.com/on/demandware.static/-/Library-Sites-EmericaSharedLibrary/default/dw17d910c9/Collections/Category%20Banner%20Mobile%202020/Em-FA20-ThePillar-CategoryMobile.jpg',
+        desc: 'Call to Action 3',
+        link: 'https://twitter.com/',
+      },
+    ],
+  },
 };
+
+const testObj = {
+  desktop: '1231',
+  mobile:
+    'https://i.pinimg.com/originals/27/1c/c6/271cc6511664cc4400e59ebaa34c311d.jpg',
+  desc: '456',
+  link: null,
+};
+
 export default function Home() {
   const addToCart = () => {
     console.log('addToCart');
   };
+
   return (
     <Layout>
-      <Banner images={BANNERS.media} />
+      <Banner images={BANNERS.media.banner} />
       <Container>
+        <Hero hero={BANNERS.media.hero[0]} />
         <div className="relative mb-96">
           <div className="sm:text-center lg:text-left">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
@@ -95,6 +111,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <Hero hero={BANNERS.media.hero[1]} />
+        <Hero hero={BANNERS.media.hero[2]} />
       </Container>
     </Layout>
   );

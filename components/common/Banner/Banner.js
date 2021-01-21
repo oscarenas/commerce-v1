@@ -10,8 +10,12 @@ import SwiperCore, {
 } from 'swiper';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Virtual, Autoplay]);
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { PictureImg } from '@components/ui';
+import PropTypes from 'prop-types';
 
 function Banner({ images }) {
+  console.log(images);
+
   return (
     <div className="-mt-1 mb-8">
       <Swiper
@@ -25,45 +29,43 @@ function Banner({ images }) {
         preloadImages={true}
         updateOnImagesReady={true}
       >
-        {images.map((item, index) => (
-          <SwiperSlide key={index} virtualIndex={index}>
-            <Slides banner={item} />
-          </SwiperSlide>
-        ))}
+        {images &&
+          images.map((item, index) => (
+            <SwiperSlide key={index} virtualIndex={index}>
+              <Slides banner={item} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );
 }
 
 function Slides({ banner }) {
+  const { link } = banner;
+
   return (
     <>
-      {banner.bannerLink ? (
-        <Link href={banner.bannerLink}>
-          <a className="w-full">
-            <Pic item={banner} />
+      {link ? (
+        <Link href={link}>
+          <a className="w-full" target="_blank">
+            <PictureImg img={banner} />
           </a>
         </Link>
       ) : (
-        <Pic item={banner} />
+        <PictureImg img={banner} />
       )}
     </>
   );
 }
 
-function Pic({ item }) {
-  return (
-    <picture className="w-full">
-      <source media="(min-width: 768px)" srcSet={item.bannerEscritorio} />
-      <source media="(min-width: 320px)" srcSet={item.bannerMobile} />
-      <img
-        src={item.bannerEscritorio}
-        alt={item.bannerDescripcion}
-        width="100%"
-        height="100%"
-      />
-    </picture>
-  );
-}
-
+Banner.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      desktop: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+      mobile: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+      desc: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+      link: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    })
+  ),
+};
 export default Banner;

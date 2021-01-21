@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from '@components/ui';
 import { shareSocial, shareMail, sharePhone } from '@lib/shareLinks';
+import PropTypes from 'prop-types';
 
-function Footer(props) {
-  const { data } = props;
+function Footer({ data }) {
   const social = shareSocial(data);
   const date = new Date();
 
@@ -79,5 +79,13 @@ export const SocialButton = ({ data }) =>
       </div>
     );
   });
+
+Footer.propTypes = {
+  data: PropTypes.object,
+};
+
+SocialButton.propTypes = {
+  data: PropTypes.array,
+};
 
 export default Footer;

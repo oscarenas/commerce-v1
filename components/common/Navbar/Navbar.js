@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import LABELS from '@utils/CONSTANTS';
+import LABELS from '@utils/CONSTANTS/LABELS';
 import { Sidebar } from '@components/ui';
 
 function Navbar(props) {
@@ -16,7 +16,6 @@ function Navbar(props) {
     };
 
     setActiveItem(path());
-    console.log(path());
     setOpenSlide(false);
   }, []);
 
