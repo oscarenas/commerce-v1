@@ -36,5 +36,8 @@ const LABELS = {
     },
   ],
   menuLabel: 'Menú',
+  addItemLabel: 'Agregar',
+  outStockLabel: 'Agotado',
+  newItemLabel: 'Nuevo',
 };
 export default LABELS;

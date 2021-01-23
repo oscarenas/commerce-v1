@@ -14,8 +14,6 @@ import { PictureImg } from '@components/ui';
 import PropTypes from 'prop-types';
 
 function Banner({ images }) {
-  console.log(images);
-
   return (
     <div className="-mt-1 mb-8">
       <Swiper

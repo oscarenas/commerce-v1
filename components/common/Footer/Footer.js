@@ -66,10 +66,10 @@ export const SocialButton = ({ data }) =>
     return (
       <div
         key={index}
-        className="text-3xl sm:mb-8 xs:mb-12 rounded-full shadow text-center mx-2 content-center self-center justify-center flex bg-gray-600"
+        className="text-3xl sm:mb-8 xs:mb-12 rounded-full shadow text-center lg:mx-6 md:mx-4 sm:mx-3 xs:mx-2 content-center self-center justify-center flex bg-gray-600"
       >
         <a
-          className="my-2 mx-2 text-white text-4xl w-10 h-10"
+          className="mx-1 my-1 py-2 px-2 text-white text-2xl w-10 h-10 flex justify-center items-center"
           href={url}
           title={label}
           target="_blank"

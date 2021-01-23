@@ -9,18 +9,18 @@ function Navbar(props) {
   const [openSlide, setOpenSlide] = useState(false);
 
   useEffect(() => {
-    const path = () => {
-      if (typeof window !== 'undefined') {
-        return window.location.pathname.split('/')[1] === '' ? 'inicio' : path;
-      }
-    };
+    if (typeof window !== 'undefined') {
+      const item =
+        window.location.pathname.split('/')[1] === ''
+          ? 'inicio'
+          : window.location.pathname.split('/')[1];
+      setActiveItem(item);
+    }
 
-    setActiveItem(path());
     setOpenSlide(false);
   }, []);
 
   function closeSidebar(e) {
-    console.log(e);
     setOpenSlide(false);
   }
   function openMenu() {
