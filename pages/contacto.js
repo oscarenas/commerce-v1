@@ -1,60 +1,6 @@
-import { Button, Container, Hero } from '@components/ui';
-import { Layout, Banner, HomeProducts } from '@components/common';
-import s from '../components/ui/Button/Button.module.css';
-
-const BANNERS = {
-  media: {
-    banner: [
-      {
-        desktop:
-          'https://www.pyropainters.de/images/pyropaintersde/162-vans-cheap-skors-online-vans-skors-sales-3013.jpg',
-        mobile:
-          'https://vansco.vteximg.com.br/arquivos/ids/243671/BANNER-MOBILE_BACKSCHOOL.jpg',
-        desc: 'descripcion uno del banner',
-        link: 'https://google.com',
-      },
-      {
-        desktop: 'https://www.zimbabwetienda.com/images/BANNER-NIKE-SB-3.jpg',
-        mobile:
-          'https://i.pinimg.com/originals/2e/2d/ab/2e2dab8bac3d4577c7e90a32df3b9a85.jpg',
-        desc: 'descripcion dos',
-        link: 'https://facebook.com',
-      },
-      {
-        desktop:
-          'https://www.etnies.com/on/demandware.static/-/Library-Sites-EtniesSharedLibrary/default/dw0a2b04ab/Collections/Category/Category%202020/ET_FA20_Michelin_Pack_eComm_Banners_ET_FA20_Michelin_Pack_Homepage.jpg',
-        mobile:
-          'https://d8ni2q4fyw-flywheel.netdna-ssl.com/wp-content/uploads/2020/11/MLL-CTA-banner-mobile-ETNIES-OCT-2020-720x720.jpg',
-        desc: 'descripcion tres',
-        link: 'https://twitter.com/',
-      },
-    ],
-    hero: [
-      {
-        desktop: 'https://www.collectoffers.com/EditorImages/banner1.jpg',
-        mobile:
-          'https://media.dcshoes.com.au/media/dc/rwd/giftguide/2021/2101-dc-gifting-essentials-banner-mobile-2.gif',
-        desc: 'Call to Action 1',
-        link: 'https://google.com',
-      },
-      {
-        desktop: 'https://www.speedshoes.com.br/image/catalog/adidas.jpg',
-        mobile:
-          'https://d321d41hgs2fyt.cloudfront.net/media/wysiwyg/landings/hombre/2020/diciembre-21/mobile/ES/banner-adidas-hombre-mobile.jpg',
-        desc: 'Call to Action 2',
-        link: 'https://facebook.com',
-      },
-      {
-        desktop:
-          'https://res.cloudinary.com/oscarenas/image/upload/v1611208012/store/cta.jpg',
-        mobile:
-          'https://res.cloudinary.com/oscarenas/image/upload/v1611208775/store/cta-mobile.jpg',
-        desc: 'Call to Action 3',
-        link: false,
-      },
-    ],
-  },
-};
+import { Container } from '@components/ui';
+import { Layout, HomeProducts } from '@components/common';
+import { ProductCard } from '@components/product';
 
 const DATA = [
   {
@@ -520,37 +466,16 @@ const DATA = [
   },
 ];
 
-const testObj = {
-  desktop: '1231',
-  mobile:
-    'https://i.pinimg.com/originals/27/1c/c6/271cc6511664cc4400e59ebaa34c311d.jpg',
-  desc: '456',
-  link: null,
-};
-
-export default function Home() {
-  const addToCart = () => {
-    console.log('addToCart');
-  };
-
+export default function contacto() {
   return (
     <Layout>
-      <Banner images={BANNERS.media.banner} />
       <Container>
-        <Hero hero={BANNERS.media.hero[0]} />
-        <div className="relative">
-          <div className="sm:text-center mb-5">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl my-20">
-              <span className="block xl:inline">Nuestra</span>
-              <span className="block text-indigo-600 xl:inline">
-                &nbsp;Tienda
-              </span>
-            </h1>
-          </div>
+        <div className="w-full">
+          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-36">
+            <span className="block xl:inline">Product Card</span>
+          </h1>
           <HomeProducts products={DATA} />
         </div>
-        <Hero hero={BANNERS.media.hero[1]} />
-        <Hero hero={BANNERS.media.hero[2]} />
       </Container>
     </Layout>
   );

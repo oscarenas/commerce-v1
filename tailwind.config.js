@@ -45,6 +45,64 @@ module.exports = {
       },
       screens: {
         xs: { min: '320px', max: '639px' },
+        portrait: { raw: '(orientation: portrait)' },
+        landscape: { raw: '(orientation: landscape)' },
+        'iPad-portrait': [
+          {
+            min: '768px',
+            max: '1024px',
+            orientation: 'portrait',
+          },
+        ],
+        'iPad-landscape': [
+          {
+            min: '768px',
+            max: '1024px',
+            orientation: 'landscape',
+          },
+        ],
+        'iPadPro-portrait': [
+          {
+            min: '1024px',
+            max: '1366px',
+            orientation: 'portrait',
+          },
+        ],
+        'iPadPro-landscape': [
+          {
+            min: '1024px',
+            max: '1366px',
+            orientation: 'landscape',
+          },
+        ],
+        'xs-portrait': [
+          {
+            min: '320px',
+            max: '639px',
+            orientation: 'portrait',
+          },
+        ],
+        'xs-landscape': [
+          {
+            min: '320px',
+            max: '639px',
+            orientation: 'landscape',
+          },
+        ],
+        'sm-portrait': [
+          {
+            min: '640px',
+            max: '767px',
+            orientation: 'portrait',
+          },
+        ],
+        'sm-landscape': [
+          {
+            min: '640px',
+            max: '767px',
+            orientation: 'landscape',
+          },
+        ],
       },
     },
     fontFamily: {

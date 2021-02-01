@@ -29,7 +29,7 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div className="max-w-xs xs:w-40 w-80 mx-auto">
+    <div className="xs:w-44 sm:max-w-2xl lg:w-72 iPad-portrait:w-80 iPadPro-portrait:w-96 iPad-landscape:w-52 sm-landscape:w-72 sm:w-40 mx-auto mb-20 xs:mb-10">
       <Link href={`/producto/${sku}/${getSlug(nombre)}`}>
         <a
           onMouseEnter={() => setImgBack(mediaImagen2)}
